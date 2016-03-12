@@ -16,15 +16,15 @@ RUN \
   echo "\ndaemon off;" >> /etc/nginx/nginx.conf && \
   chown -R www-data:www-data /var/lib/nginx
 
-# Define mountable directories.
-VOLUME ["/etc/nginx/sites-enabled", "/etc/nginx/certs", "/etc/nginx/conf.d", "/var/log/nginx", "/var/www/html"]
+ADD app /app
+
+ADD config/nginx.conf /etc/nginx/
 
 # Define working directory.
-WORKDIR /etc/nginx
+WORKDIR /app
 
 # Define default command.
 CMD ["nginx"]
 
 # Expose ports.
-EXPOSE 80
-EXPOSE 443
+EXPOSE 8080
