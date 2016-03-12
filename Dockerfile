@@ -4,8 +4,7 @@
 # https://github.com/dockerfile/nginx
 #
 
-# Pull base image.
-FROM dockerfile/ubuntu
+FROM dockerfile/ubuntu:latest
 
 # Install Nginx.
 RUN \
