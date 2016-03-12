@@ -4,7 +4,7 @@
 # https://github.com/dockerfile/nginx
 #
 
-FROM dockerfile/ubuntu:latest
+FROM ubuntu:14:04
 
 # Install Nginx.
 RUN \
