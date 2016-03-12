@@ -7,7 +7,7 @@
 FROM ubuntu:14.04
 
 RUN apt-get update && \
-    apt-get install software-properties-common python-software-properties
+    apt-get install -y software-properties-common python-software-properties
 
 # Install Nginx.
 RUN \
