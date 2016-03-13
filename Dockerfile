@@ -10,7 +10,6 @@ MAINTAINER david.strejc@gmail.com
 RUN yum update -y ;\
 	  yum install -y nginx
 
-ADD app /app
 
 ADD config/nginx.conf /etc/nginx/
 
@@ -25,6 +24,8 @@ RUN mkdir /tmp/nginx && \
 
 # Define working directory.
 WORKDIR /app
+
+ADD app /app
 
 RUN fix-permissions /app || echo "OK"
 
