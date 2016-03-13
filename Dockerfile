@@ -4,17 +4,11 @@
 # https://github.com/dockerfile/nginx
 #
 
-FROM ubuntu:14.04
+FROM openshift/base-centos7
+MAINTAINER david.strejc@gmail.com
 
-RUN apt-get update && \
-    apt-get install -y software-properties-common python-software-properties
-
-# Install Nginx.
-RUN \
-  add-apt-repository -y ppa:nginx/stable && \
-  apt-get update && \
-  apt-get install -y nginx && \
-  rm -rf /var/lib/apt/lists/*
+RUN yum update -y ;\
+	  yum install -y nginx
 
 ADD app /app
 
@@ -22,8 +16,8 @@ ADD config/nginx.conf /etc/nginx/
 
 RUN mkdir /tmp/nginx && \
     chown -R 1001:0 /tmp/nginx && \
+    chown -R 1001:0 /app && \
     chmod -R ug+rwx /tmp/nginx && \
-	chown -R 1001:0 /app && \
 	chmod ug+rwx /etc/nginx/nginx.conf && \
 	mkdir /tmp/logs && \
 	chown -R 1001:0 /tmp/logs && \
@@ -31,6 +25,8 @@ RUN mkdir /tmp/nginx && \
 
 # Define working directory.
 WORKDIR /app
+
+RUN fix-permissions /app || echo "OK"
 
 USER 1001
 
