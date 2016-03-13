@@ -12,19 +12,20 @@ RUN yum update -y ;\
 
 ADD config/nginx.conf /etc/nginx/
 
-
 # Define working directory.
 
-ADD app /app
 
 RUN mkdir /tmp/nginx && \
     chown -R 1001:0 /tmp/nginx && \
-    chown -R 1001:0 /app && \
     chmod -R ug+rwx /tmp/nginx && \
 	chmod ug+rwx /etc/nginx/nginx.conf && \
 	mkdir /tmp/logs && \
 	chown -R 1001:0 /tmp/logs && \
 	chmod -R ug+rwx /tmp/logs
+
+ADD app /app
+
+RUN chown -R 1001:0 /app
 
 RUN fix-permissions /app || echo "OK"
 
