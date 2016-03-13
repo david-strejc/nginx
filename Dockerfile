@@ -22,6 +22,14 @@ ADD app /app
 
 ADD config/nginx.conf /etc/nginx/
 
+RUN mkdir /tmp/nginx && \
+    chown -R 1001:0 /tmp/nginx && \
+    chmod -R ug+rwx /tmp/nginx && \
+	  chmod ug+rwx /etc/nginx/nginx.conf && \
+		mkdir /tmp/logs && \
+		chown -R 1001:0 /tmp/logs && \
+		chmod -R ug+rwx /tmp/logs
+
 # Define working directory.
 WORKDIR /app
 
