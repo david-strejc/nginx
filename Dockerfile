@@ -32,6 +32,8 @@ RUN mkdir /tmp/nginx && \
 # Define working directory.
 WORKDIR /app
 
+USER 1001
+
 # Define default command.
 CMD ["nginx"]
 
