@@ -8,10 +8,14 @@ FROM openshift/base-centos7
 MAINTAINER david.strejc@gmail.com
 
 RUN yum update -y ;\
-	  yum install -y nginx
-
+	yum install -y nginx
 
 ADD config/nginx.conf /etc/nginx/
+
+
+# Define working directory.
+
+ADD app /app
 
 RUN mkdir /tmp/nginx && \
     chown -R 1001:0 /tmp/nginx && \
@@ -22,14 +26,11 @@ RUN mkdir /tmp/nginx && \
 	chown -R 1001:0 /tmp/logs && \
 	chmod -R ug+rwx /tmp/logs
 
-# Define working directory.
-WORKDIR /app
-
-ADD app /app
-
 RUN fix-permissions /app || echo "OK"
 
 USER 1001
+
+WORKDIR /app
 
 # Define default command.
 CMD ["nginx"]
