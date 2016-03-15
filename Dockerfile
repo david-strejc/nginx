@@ -14,6 +14,7 @@ ADD config/nginx.conf /etc/nginx/
 
 # Define working directory.
 
+RUN echo "test"
 
 RUN mkdir /tmp/nginx && \
     chown -R 1001:0 /tmp/nginx && \
