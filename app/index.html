@@ -21,6 +21,7 @@
 
     <!-- Plugin CSS -->
     <link rel="stylesheet" href="css/animate.min.css" type="text/css">
+    <link href="css/bootstrap.lightbox.css" rel="stylesheet" media="screen">
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/creative.css" type="text/css">
@@ -61,8 +62,8 @@
                     <li>
                         <a class="page-scroll" href="#portfolio">Popis</a>
                     </li>
-                    <li>
-                        <a class="page-scroll" href="#contact">Kontakt</a>
+                    <li style="background-color: red;">
+                        <a style="color: white;" class="page-scroll" href="#contact">Let's dev!</a>
                     </li>
                 </ul>
             </div>
@@ -74,17 +75,21 @@
     <header>
         <div class="header-content">
             <div class="header-content-inner">
-                <h1>Vyvíjejte jako profesionálové</h1>
+                <h1>Vyvíjejte jednoduše profesionálně</h1>
                 <hr>
                 <p style="background-color: #000; padding: 4px;">developer@devcloud.cz:$ git add . && git commit && git push</p>
+                <ul class="thumbnails list-unstyled" data-toggle="lightbox">
+                  <li class="span3">
+                    <a href="https://www.youtube.com/watch?v=Bk3ziumNk10" title="Image #1" data-title-link="http://google.com" data-description="Lorem ipsum dolor" class="thumbnail  btn btn-primary btn-xl page-scroll">
+                       Jak DevCloud funguje?
+                    </a>
+                  </li>
+                </ul>
+            </div>
+            <div style="margin-top: 80px;">
                 <p>Beta testing zdarma!</p>
-                <a href="#about" class="btn btn-primary btn-xl page-scroll">Aplikace v cloudu postavena. Jak je to možné?</a>
-            </div>
-            <div style="margin-top: 80px;">
                 <h2>Používají firmy</h2>
-            </div>
-            <div style="margin-top: 80px;">
-                <h3>atoto.cz | easyredmine.com | startupjobs.cz | creativefingers.net</h3>
+                <h3>atoto.cz | easyredmine.com | startupjobs.cz | xdevproject.net</h3>
             </div>
         </div>
     </header>
@@ -149,7 +154,7 @@
         <div class="container-fluid">
             <div class="row no-gutter">
                 <div class="col-lg-4 col-sm-6">
-                    <a href="#" class="portfolio-box">
+                    <a href="#demoLightbox" data-toggle="lightbox" class="portfolio-box">
                         <img src="img/portfolio/1.jpg" class="img-responsive" alt="">
                         <div class="portfolio-box-caption">
                             <div class="portfolio-box-caption-content">
@@ -165,7 +170,7 @@
                 </div>
                 <div class="col-lg-4 col-sm-6">
                     <a href="#" class="portfolio-box">
-                        <img src="img/portfolio/2.jpg" class="img-responsive" alt="">
+                        <img src="img/portfolio/2.gif" class="img-responsive" alt="">
                         <div class="portfolio-box-caption">
                             <div class="portfolio-box-caption-content">
                                 <div class="project-category text-faded">
@@ -193,51 +198,6 @@
                         </div>
                     </a>
                 </div>
-                <div class="col-lg-4 col-sm-6">
-                    <a href="#" class="portfolio-box">
-                        <img src="img/portfolio/4.jpg" class="img-responsive" alt="">
-                        <div class="portfolio-box-caption">
-                            <div class="portfolio-box-caption-content">
-                                <div class="project-category text-faded">
-                                    Category
-                                </div>
-                                <div class="project-name">
-                                    Project Name
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-4 col-sm-6">
-                    <a href="#" class="portfolio-box">
-                        <img src="img/portfolio/5.jpg" class="img-responsive" alt="">
-                        <div class="portfolio-box-caption">
-                            <div class="portfolio-box-caption-content">
-                                <div class="project-category text-faded">
-                                    Category
-                                </div>
-                                <div class="project-name">
-                                    Project Name
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-4 col-sm-6">
-                    <a href="#" class="portfolio-box">
-                        <img src="img/portfolio/6.jpg" class="img-responsive" alt="">
-                        <div class="portfolio-box-caption">
-                            <div class="portfolio-box-caption-content">
-                                <div class="project-category text-faded">
-                                    Category
-                                </div>
-                                <div class="project-name">
-                                    Project Name
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
             </div>
         </div>
     </section>
@@ -245,7 +205,7 @@
     <aside class="bg-dark">
         <div class="container text-center">
             <div class="call-to-action">
-                <h2>Trerminálový klient pro všechny systémy</h2>
+                <h2>Terminálový klient pro všechny systémy</h2>
                 <a href="#" class="btn btn-default btn-xl wow tada">Stáhnout!</a>
             </div>
         </div>
@@ -270,11 +230,23 @@
             </div>
             <div class="row" style="margin-top: 100px;">
                 <div class="col-lg-8 col-lg-offset-2 text-center" style="martin-top: 40px;">
-                    <p style="font-size: 12px; color: #888">Developed and maintained by WYR s.r.o (currently renaming to Octopus Systems s.r.o) | GitHub | LinkedIN | Facebook </p>
+                    <p style="font-size: 12px; color: #888">Developed and maintained by WYR s.r.o (currently renaming to Octopus Systems s.r.o) | GitHub | LinkedIN | Facebook | Twitter </p>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- Video / Generic Modal -->
+    <div class="modal fade" id="mediaModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body">
+          <!-- content dynamically inserted -->
+        </div>
+      </div>
+    </div>
+    </div>
+
 
     <!-- jQuery -->
     <script src="js/jquery.js"></script>
@@ -289,6 +261,10 @@
 
     <!-- Custom Theme JavaScript -->
     <script src="js/creative.js"></script>
+
+    <script src="js/boostrap-youtube-modal.js"></script>
+
+
 
 </body>
 
