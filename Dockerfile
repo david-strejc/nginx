@@ -8,7 +8,7 @@ FROM openshift/base-centos7
 MAINTAINER david.strejc@gmail.com
 
 RUN yum update -y ;\
-	yum install -y nginx
+	yum install -y nginx telnet 
 
 ADD config/nginx.conf /etc/nginx/
 
